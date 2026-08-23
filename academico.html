@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acadêmico · Anna Clara Ferraz Santos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Anna Clara F. Santos</a>
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre mim</a></li>
+        <li><a href="curiosidades.html">Curiosidades</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="academico.html" class="active">Acadêmico</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page container">
+    <div class="page-header reveal">
+      <p class="tag">Notas e resultados</p>
+      <h1>Vida Acadêmica</h1>
+      <div class="divider left"></div>
+    </div>
+
+    <!-- Resumo em números -->
+    <section class="block stats-row">
+      <div class="stat card reveal">
+        <span class="stat-value" data-count="8.4" data-decimals="1">0.0</span>
+        <p>Média geral</p>
+      </div>
+      <div class="stat card reveal delay-1">
+        <span class="stat-value" data-count="42" data-suffix="">0</span>
+        <p>Disciplinas em acompanhamento</p>
+        <p class="obs">Dados organizados para atualizar</p>
+      </div>
+      <div class="stat card reveal delay-2">
+        <span class="stat-value" data-count="100" data-suffix="%">0%</span>
+        <p>Frequência</p>
+      </div>
+    </section>
+
+    <!-- Notas por disciplina -->
+    <section class="block reveal">
+      <h2>Notas por disciplina</h2>
+      <p class="hint">Resumo visual para acompanhar a evolução ao longo dos semestres.</p>
+      <div class="grade-list">
+        <div class="grade-item">
+          <div class="grade-info">
+            <strong>Anatomia Humana</strong>
+            <span>1º semestre</span>
+          </div>
+          <div class="grade-bar"><span style="--w: 84%"></span></div>
+          <span class="grade-note">8.4</span>
+        </div>
+        <div class="grade-item">
+          <div class="grade-info">
+            <strong>Citologia e Histologia</strong>
+            <span>1º semestre</span>
+          </div>
+          <div class="grade-bar"><span style="--w: 88%"></span></div>
+          <span class="grade-note">8.8</span>
+        </div>
+        <div class="grade-item">
+          <div class="grade-info">
+            <strong>Genética</strong>
+            <span>2º semestre</span>
+          </div>
+          <div class="grade-bar"><span style="--w: 79%"></span></div>
+          <span class="grade-note">7.9</span>
+        </div>
+        <div class="grade-item">
+          <div class="grade-info">
+            <strong>Bioquímica</strong>
+            <span>2º semestre</span>
+          </div>
+          <div class="grade-bar"><span style="--w: 82%"></span>
+          </div><span class="grade-note">8.2</span>
+        </div>
+        <div class="grade-item">
+          <div class="grade-info">
+            <strong>Saúde Coletiva</strong>
+            <span>3º semestre</span>
+          </div>
+          <div class="grade-bar"><span style="--w: 91%"></span></div>
+          <span class="grade-note">9.1</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Feito com carinho · Anna Clara Ferraz Santos · <em>Medicina</em></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

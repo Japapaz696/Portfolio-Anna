@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mim · Anna Clara Ferraz Santos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">Anna Clara F. Santos</a>
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html" class="active">Sobre mim</a></li>
+        <li><a href="curiosidades.html">Curiosidades</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="academico.html">Acadêmico</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page container">
+    <div class="page-header reveal">
+      <p class="tag">Quem eu sou</p>
+      <h1>Sobre mim</h1>
+      <div class="divider left"></div>
+    </div>
+
+    <!-- Layout Editorial: Texto à esquerda, Imagem dinâmica à direita -->
+    <section class="block reveal" id="sobre-editorial">
+      <div class="editorial-layout">
+
+        <!-- Coluna do texto -->
+        <div class="editorial-texto">
+          <h2>Minha história</h2>
+
+          <div class="texto-bloco" data-img="0">
+            <p>
+              Meu nome é <strong>Anna Clara Ferraz Santos</strong>, tenho 20 anos e sou filha única.
+              Moro com meus pais, que estão juntos — na vida e no amor — desde 1983.
+            </p>
+          </div>
+
+          <div class="texto-bloco" data-img="1">
+            <p>
+              Tenho duas companheiras de todos os dias: a <strong>Lili</strong> e a <strong>Lola</strong>,
+              duas pinschers que enchem a casa de alegria. O amor por animais sempre fez parte
+              de quem eu sou, assim como o cuidado com as pessoas ao meu redor.
+            </p>
+          </div>
+
+          <div class="texto-bloco" data-img="2">
+            <p>
+              Cresci cercada de livros e conversas longas à mesa de jantar. Meu pai me ensinou
+              a ouvir antes de falar, e minha mãe me mostrou que gentileza não é fraqueza —
+              é forma de resistência.
+            </p>
+          </div>
+
+          <div class="texto-bloco" data-img="3">
+            <p>
+              Aos seis anos, ganhei meu primeiro kit de médico de brinquedo. Não era só brincadeira:
+              eu atendia bonecas, cachorros, vizinhos. Já sabia que cuidar era o meu jeito de
+              estar no mundo.
+            </p>
+          </div>
+
+          <blockquote class="quote">
+            "Cuidar de pessoas não é só uma profissão — é quem eu sou."
+            <span>— Anna Clara</span>
+          </blockquote>
+        </div>
+
+        <!-- Coluna da imagem (sticky) -->
+        <div class="editorial-imagem" aria-live="polite">
+          <figure class="imagem-principal" role="img" aria-label="Foto da Anna Clara">
+            <!-- Imagens empilhadas, apenas uma visível por vez -->
+            <img src="img/anna1.jpg" alt="Anna Clara sorrindo" data-index="0" class="imagem-ativa">
+            <img src="img/anna2.jpg" alt="Anna Clara em momento descontraído" data-index="1">
+            <img src="img/anna3.jpg" alt="Anna Clara com as pinschers Lili e Lola" data-index="2">
+            <img src="img/anna4.jpg" alt="Anna Clara - Foto 4" data-index="3">
+            <img src="img/anna5.jpg" alt="Anna Clara - Foto 5" data-index="4">
+            <img src="img/anna6.jpg" alt="Anna Clara - Foto 6" data-index="5">
+            <img src="img/anna7.jpg" alt="Anna Clara - Foto 7" data-index="6">
+            <img src="img/anna8.jpg" alt="Anna Clara - Foto 8" data-index="7">
+
+            <!-- Overlay sutil com legenda -->
+            <figcaption class="imagem-legenda">
+              <span class="legenda-texto"></span>
+              <span class="legenda-dica">Clique para ampliar</span>
+            </figcaption>
+          </figure>
+
+          <!-- Indicador de progresso sutil -->
+          <div class="imagem-progresso" aria-hidden="true">
+            <span class="progresso-barra" style="--progress: 0%"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Vocação (mantém layout limpo) -->
+    <section class="block reveal delay-1">
+      <h2>A vocação</h2>
+      <p>
+        Desde os seis anos de idade, sabia que a Medicina era o meu lugar.
+        Quem convive comigo costuma destacar a minha gentileza e o meu cuidado com os outros —
+        e talvez sejam exatamente esses traços que me atraíram para a formação médica.
+      </p>
+      <p>
+        Sou a primeira da família a seguir esse caminho, e isso torna a jornada ainda mais especial.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Lightbox (mantido do anterior) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" hidden>
+    <button class="lightbox-fechar" aria-label="Fechar imagem ampliada" tabindex="0">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <button class="lightbox-nav lightbox-anterior" aria-label="Imagem anterior" tabindex="0">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="lightbox-nav lightbox-proxima" aria-label="Próxima imagem" tabindex="0">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    <figure class="lightbox-figura">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-legenda" class="lightbox-legenda"></figcaption>
+    </figure>
+    <div class="lightbox-contador" id="lightbox-contador"></div>
+  </div>
+
+  <footer>
+    <p>Feito com carinho · Anna Clara Ferraz Santos · <em>Medicina</em></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
