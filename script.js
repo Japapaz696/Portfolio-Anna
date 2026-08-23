@@ -248,6 +248,13 @@ if (gradeBars.length && "IntersectionObserver" in window) {
     });
   });
 
+  // Passa automaticamente por todas as fotos a cada 3 segundos
+  setInterval(() => {
+    if (lightbox && !lightbox.hidden) return;
+    const proximoIndice = (indiceAtual + 1) % imagens.length;
+    trocarImagem(proximoIndice);
+  }, 3000);
+
   // Click na imagem principal abre lightbox
   imagemPrincipal?.addEventListener("click", () => abrirLightbox(indiceAtual));
   imagemPrincipal?.addEventListener("keydown", (e) => {
