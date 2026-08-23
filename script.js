@@ -20,13 +20,21 @@ const toggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (toggle && navLinks) {
+  toggle.setAttribute("aria-expanded", "false");
+
   toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+    const aberto = navLinks.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(aberto));
+    toggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
   });
 
   // Fecha o menu ao clicar em um link
   navLinks.querySelectorAll("a").forEach((link) =>
-    link.addEventListener("click", () => navLinks.classList.remove("open"))
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menu");
+    })
   );
 }
 
