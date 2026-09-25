@@ -4,7 +4,14 @@ Site pessoal de **Anna Clara Ferraz Santos**, estudante de Medicina, com estéti
 
 ## Sobre o projeto
 
-Site estático multi-páginas construído apenas com HTML, CSS e JavaScript puro — sem frameworks, dependências ou etapa de build. Ele foi pensado para funcionar bem no GitHub Pages e para ser fácil de abrir no celular.
+Site estático multi-páginas construído com HTML, CSS e JavaScript puro — sem frameworks, dependências ou etapa de build. O projeto explora uma interface personalizada de estética editorial e foi pensado para funcionar bem no GitHub Pages e no celular.
+
+## UX/UI e acessibilidade
+
+- identidade visual em tons bege e terracota;
+- layout responsivo e menu para telas menores;
+- hierarquia visual, animações de entrada e lightbox de imagens;
+- conteúdo estruturado em páginas e alternativas textuais nas imagens relevantes.
 
 ### Páginas
 
@@ -35,13 +42,15 @@ python -m http.server 8000
 
 Depois acesse `http://localhost:8000` no navegador.
 
-## Publicação no GitHub Pages
+## Deploy
 
 1. Crie um repositório no GitHub.
 2. Envie os arquivos desta pasta para a raiz do repositório.
 3. No GitHub, abra **Settings > Pages**.
 4. Em **Build and deployment**, selecione a branch `main` e a pasta `/root`.
 5. Salve e aguarde o link do GitHub Pages ficar disponível.
+
+O campo Website do repositório deve receber o endereço publicado quando o GitHub Pages estiver configurado.
 
 ---
 
