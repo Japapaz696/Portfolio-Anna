@@ -44,13 +44,19 @@ Depois acesse `http://localhost:8000` no navegador.
 
 ## Deploy
 
+**Demonstração publicada:** [japapaz696.github.io/Portfolio-Anna](https://japapaz696.github.io/Portfolio-Anna/).
+
+O endereço respondeu HTTP 200 e foi aberto em Chromium em versões desktop e mobile na revisão de 5 de outubro de 2026. Isso valida a apresentação das páginas; não representa certificação de acessibilidade ou teste de todas as interações.
+
+Para reproduzir a publicação em outro repositório:
+
 1. Crie um repositório no GitHub.
 2. Envie os arquivos desta pasta para a raiz do repositório.
 3. No GitHub, abra **Settings > Pages**.
 4. Em **Build and deployment**, selecione a branch `main` e a pasta `/root`.
 5. Salve e aguarde o link do GitHub Pages ficar disponível.
 
-O campo Website do repositório deve receber o endereço publicado quando o GitHub Pages estiver configurado.
+O campo Website do repositório pode receber o endereço da demonstração acima.
 
 ---
 
