@@ -494,6 +494,11 @@ section.block strong {
   cursor: zoom-in;
 }
 
+.imagem-principal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .imagem-principal img {
   position: absolute;
   inset: 0;
@@ -767,6 +772,10 @@ section.block strong {
 .lightbox:not([hidden]) {
   opacity: 1;
   visibility: visible;
+}
+
+.lightbox[hidden] {
+  display: none;
 }
 
 .lightbox-figura {
@@ -1058,6 +1067,17 @@ footer em {
     filter: none;
     transform: none;
     transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .imagem-principal img,
+  .lightbox-figura,
+  .album-photo img,
+  .progresso-barra {
+    transition: none !important;
   }
 }
 
