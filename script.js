@@ -248,18 +248,49 @@ if (gradeBars.length && "IntersectionObserver" in window) {
     });
   });
 
-  // Passa automaticamente por todas as fotos a cada 3 segundos
-  setInterval(() => {
-    if (lightbox && !lightbox.hidden) return;
-    const proximoIndice = (indiceAtual + 1) % imagens.length;
-    trocarImagem(proximoIndice);
-  }, 3000);
+  // Passa automaticamente por todas as fotos a cada 3 segundos (respeita reduced motion)
+  const reducedMotionPref = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let autoplayTimer = null;
+  function iniciarAutoplay() {
+    if (autoplayTimer) return;
+    if (reducedMotionPref.matches) return;
+    autoplayTimer = setInterval(() => {
+      if (lightbox && !lightbox.hidden) return;
+      const proximoIndice = (indiceAtual + 1) % imagens.length;
+      trocarImagem(proximoIndice);
+    }, 3000);
+  }
+  function pararAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+  iniciarAutoplay();
+  const onMotionChange = (e) => {
+    if (e.matches) {
+      pararAutoplay();
+    } else {
+      iniciarAutoplay();
+    }
+  };
+  if (reducedMotionPref.addEventListener) {
+    reducedMotionPref.addEventListener("change", onMotionChange);
+  } else if (reducedMotionPref.addListener) {
+    reducedMotionPref.addListener(onMotionChange);
+  }
+
+  let lastFocusedElement = null;
 
   // Click na imagem principal abre lightbox
-  imagemPrincipal?.addEventListener("click", () => abrirLightbox(indiceAtual));
+  imagemPrincipal?.addEventListener("click", () => {
+    lastFocusedElement = document.activeElement;
+    abrirLightbox(indiceAtual);
+  });
   imagemPrincipal?.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
+      lastFocusedElement = document.activeElement;
       abrirLightbox(indiceAtual);
     }
   });
@@ -294,6 +325,15 @@ if (gradeBars.length && "IntersectionObserver" in window) {
     lightbox.hidden = true;
     document.body.style.overflow = "";
     lightboxImg.src = "";
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+      setTimeout(() => {
+        try {
+          lastFocusedElement.focus({ preventScroll: true });
+        } catch {
+          lastFocusedElement.focus();
+        }
+      }, 0);
+    }
   }
 
   function proxima() {
@@ -338,9 +378,38 @@ if (gradeBars.length && "IntersectionObserver" in window) {
 
   document.addEventListener("keydown", (e) => {
     if (lightbox?.hidden) return;
-    if (e.key === "Escape") fecharLightbox();
-    if (e.key === "ArrowRight") proxima();
-    if (e.key === "ArrowLeft") anterior();
+    if (e.key === "Escape") {
+      e.preventDefault();
+      fecharLightbox();
+      return;
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      proxima();
+      return;
+    }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      anterior();
+      return;
+    }
+    if (e.key === "Tab") {
+      const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
   });
 
   // Swipe no mobile
