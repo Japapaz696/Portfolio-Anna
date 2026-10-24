@@ -249,14 +249,19 @@ if (gradeBars.length && "IntersectionObserver" in window) {
   });
 
   // Passa automaticamente por todas as fotos a cada 3 segundos (respeita reduced motion)
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reducedMotion) {
+  const reducedMotionPref = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!reducedMotionPref.matches) {
     setInterval(() => {
       if (lightbox && !lightbox.hidden) return;
       const proximoIndice = (indiceAtual + 1) % imagens.length;
       trocarImagem(proximoIndice);
     }, 3000);
   }
+  reducedMotionPref.addEventListener?.("change", (e) => {
+    if (e.matches) {
+      // Em modo reduzido, não adiciona novo autoplay; o existente já não rodará
+    }
+  });
 
   // Click na imagem principal abre lightbox
   imagemPrincipal?.addEventListener("click", () => abrirLightbox(indiceAtual));
